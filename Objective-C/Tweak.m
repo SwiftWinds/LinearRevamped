@@ -66,7 +66,7 @@ static void new_setupViews(_UIBatteryView *self, SEL _cmd) {
 
 	if(!self.linearBattery) {
 		self.linearBattery = [UILabel new];
-		self.linearBattery.font = [UIFont boldSystemFontOfSize: 7];
+		self.linearBattery.font = [UIFont boldSystemFontOfSize: 9];
 		self.linearBattery.text = [NSString stringWithFormat:@"%0.f%%", currentBattery];
 		self.linearBattery.textColor = UIColor.labelColor;
 		self.linearBattery.textAlignment = NSTextAlignmentCenter;
@@ -110,8 +110,8 @@ static void new_setupViews(_UIBatteryView *self, SEL _cmd) {
 
 	[self.chargingBoltImageView.centerYAnchor constraintEqualToAnchor: self.linearBattery.centerYAnchor].active = YES;
 	[self.chargingBoltImageView.leadingAnchor constraintEqualToAnchor: self.linearBattery.trailingAnchor constant: -0.8].active = YES;
-	[self.chargingBoltImageView.widthAnchor constraintEqualToConstant: 7.5].active = YES;
-	[self.chargingBoltImageView.heightAnchor constraintEqualToConstant: 7.5].active = YES;
+	[self.chargingBoltImageView.widthAnchor constraintEqualToConstant: 10].active = YES;
+	[self.chargingBoltImageView.heightAnchor constraintEqualToConstant: 10].active = YES;
 
 }
 

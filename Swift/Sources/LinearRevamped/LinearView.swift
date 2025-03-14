@@ -6,7 +6,7 @@ final class LinearView: UIView {
 
 	private lazy var linearBattery: UILabel = {
 		let label = UILabel()
-		label.font = .boldSystemFont(ofSize: 7)
+		label.font = .boldSystemFont(ofSize: 9)
 		label.textAlignment = .center
 		label.translatesAutoresizingMaskIntoConstraints = false
 		addSubview(label)
@@ -77,8 +77,8 @@ final class LinearView: UIView {
 
 		chargingBoltImageView.centerYAnchor.constraint(equalTo: linearBattery.centerYAnchor).isActive = true
 		chargingBoltImageView.leadingAnchor.constraint(equalTo: linearBattery.trailingAnchor, constant: -0.5).isActive = true
-		chargingBoltImageView.widthAnchor.constraint(equalToConstant: 7.5).isActive = true
-		chargingBoltImageView.heightAnchor.constraint(equalToConstant: 7.5).isActive = true
+		chargingBoltImageView.widthAnchor.constraint(equalToConstant: 10).isActive = true
+		chargingBoltImageView.heightAnchor.constraint(equalToConstant: 10).isActive = true
 	}
 
 	// ! Reusable
