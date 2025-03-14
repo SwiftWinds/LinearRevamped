@@ -66,7 +66,7 @@ static void new_setupViews(_UIBatteryView *self, SEL _cmd) {
 
 	if(!self.linearBattery) {
 		self.linearBattery = [UILabel new];
-		self.linearBattery.font = [UIFont boldSystemFontOfSize: 9];
+		self.linearBattery.font = [UIFont systemFontOfSize:9 weight:UIFontWeightBlack];
 		self.linearBattery.text = [NSString stringWithFormat:@"%0.f%%", currentBattery];
 		self.linearBattery.textColor = UIColor.labelColor;
 		self.linearBattery.textAlignment = NSTextAlignmentCenter;
@@ -100,12 +100,12 @@ static void new_setupViews(_UIBatteryView *self, SEL _cmd) {
 
 	// layout
 	[self.linearBar.topAnchor constraintEqualToAnchor: self.linearBattery.bottomAnchor constant: 0.5].active = YES;
-	[self.linearBar.widthAnchor constraintEqualToConstant: 26].active = YES;
+	[self.linearBar.widthAnchor constraintEqualToConstant: 22].active = YES;
 	[self.linearBar.heightAnchor constraintEqualToConstant: 3.5].active = YES;
 
-	CGFloat const topConstant = [[UIDevice currentDevice].systemVersion floatValue] >= 16.0 ? 2 : 1.5;
+	CGFloat const topConstant = [[UIDevice currentDevice].systemVersion floatValue] >= 16.0 ? 0 : -0.5;
 
-	[self.linearBattery.topAnchor constraintEqualToAnchor: self.topAnchor constant: isNotchedDevice() && kLinearExists ? topConstant : 0].active = YES;
+	[self.linearBattery.topAnchor constraintEqualToAnchor: self.topAnchor constant: isNotchedDevice() && kLinearExists ? topConstant : -2].active = YES;
 	[self.linearBattery.centerXAnchor constraintEqualToAnchor: self.linearBar.centerXAnchor].active = YES;
 
 	[self.chargingBoltImageView.centerYAnchor constraintEqualToAnchor: self.linearBattery.centerYAnchor].active = YES;
@@ -129,7 +129,7 @@ static void new_updateViews(_UIBatteryView *self, SEL _cmd) {
 
 	self.linearBattery.text = [NSString stringWithFormat:@"%0.f%%", currentBattery];
 
-	self.fillBar.frame = CGRectMake(0, 0, floor((currentBattery / 100) * 26), 3.5);
+	self.fillBar.frame = CGRectMake(0, 0, floor((currentBattery / 100) * 22), 3.5);
 
 }
 

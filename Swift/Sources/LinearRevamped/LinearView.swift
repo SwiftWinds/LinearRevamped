@@ -7,6 +7,7 @@ final class LinearView: UIView {
 	private lazy var linearBattery: UILabel = {
 		let label = UILabel()
 		label.font = .boldSystemFont(ofSize: 9)
+		label.font = UIFont.systemFont(ofSize: 9, weight: .black)
 		label.textAlignment = .center
 		label.translatesAutoresizingMaskIntoConstraints = false
 		addSubview(label)
@@ -66,11 +67,11 @@ final class LinearView: UIView {
 	private func layoutUI() {
 		translatesAutoresizingMaskIntoConstraints = false
 
-		linearBattery.topAnchor.constraint(equalTo: topAnchor).isActive = true
+		linearBattery.topAnchor.constraint(equalTo: topAnchor, constant: -2).isActive = true
 		linearBattery.centerXAnchor.constraint(equalTo: linearBar.centerXAnchor).isActive = true
 
 		linearBar.topAnchor.constraint(equalTo: linearBattery.bottomAnchor, constant: 0.5).isActive = true
-		linearBar.widthAnchor.constraint(equalToConstant: 26).isActive = true
+		linearBar.widthAnchor.constraint(equalToConstant: 22).isActive = true
 		linearBar.heightAnchor.constraint(equalToConstant: 3.5).isActive = true
 
 		fillBar.heightAnchor.constraint(equalToConstant: 3.5).isActive = true
@@ -123,7 +124,7 @@ final class LinearView: UIView {
 		linearBattery.text = String(format: "%.0f%%", currentBattery)
 
 		widthAnchorConstraint?.isActive = false
-		widthAnchorConstraint = fillBar.widthAnchor.constraint(equalToConstant: floor((currentBattery / 100) * 26))
+		widthAnchorConstraint = fillBar.widthAnchor.constraint(equalToConstant: floor((currentBattery / 100) * 22))
 		widthAnchorConstraint?.isActive = true
 	}
 
